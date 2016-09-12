@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".InsertWordActivity" />
-        <activity android:name=".ViewWordActivity"></activity>
+        <activity android:name=".ViewWordActivity" />
     </application>
 
 </manifest>

@@ -13,12 +13,11 @@ import java.util.List;
  */
 public abstract class ListAdapter<T> {
 
+    protected LayoutInflater inflater;
+    protected int layoutResourceId;
     private LinearLayout parent;
     private Context context;
     private List<T> data;
-
-    protected LayoutInflater inflater;
-    protected int layoutResourceId;
 
     public ListAdapter(Context context, LinearLayout parent, int layoutResourceId, List<T> data) {
         this.context = context;

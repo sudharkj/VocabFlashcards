@@ -8,10 +8,8 @@ import android.widget.TextView;
 
 import com.jsrk.android.vocabflashcards.R;
 import com.jsrk.android.vocabflashcards.models.BreakRow;
-import com.jsrk.android.vocabflashcards.adapters.ListAdapter;
 
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by Ravi on 9/7/2016.
@@ -26,8 +24,7 @@ public class BreakListAdapter extends ListAdapter<BreakRow> {
     public View getView(BreakRow row) {
         View view = inflater.inflate(layoutResourceId, null);
         if (layoutResourceId == R.layout.break_insert_item) {
-            TextView idTextView = (TextView) view.findViewById(R.id.breakIdTextView);
-            idTextView.setText(String.format(Locale.US, "%d", row.getId()));
+            view.setTag(row.getId());
             EditText nameEditText = (EditText) view.findViewById(R.id.breakNameEditText);
             nameEditText.setText(row.getName());
             EditText meaningEditText = (EditText) view.findViewById(R.id.breakMeaningEditText);

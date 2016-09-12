@@ -8,7 +8,7 @@ public class WordRow {
     private String name;
 
     public WordRow(long id, String name) {
-        this.id  = id;
+        this.id = id;
         this.name = name;
     }
 

@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jsrk.android.vocabflashcards.adapters.BreakListAdapter;
@@ -71,11 +69,9 @@ public class InsertWordActivity extends AppCompatActivity {
     }
 
     private void renderView(Word word) {
-        TextView idTextView = (TextView) findViewById(R.id.wordIdTextView);
-        idTextView.setText(String.format(Locale.US, "%d", word.getId()));
-
         EditText nameEditText = (EditText) findViewById(R.id.insertNameEditText);
         nameEditText.setText(word.getWord());
+        nameEditText.setTag(word.getId());
 
         LinearLayout breakListView = (LinearLayout) findViewById(R.id.breakDownEditList);
         final BreakListAdapter breakListAdapter = new BreakListAdapter(Constants.ACTIVITY,
@@ -121,7 +117,6 @@ public class InsertWordActivity extends AppCompatActivity {
             return null;
         } else {
             View view;
-            TextView idTextView;
             EditText nameEditText, meaningEditText, valueEditText;
             List<BreakRow> breaks;
             List<ItemRow> meanings, usages;
@@ -129,8 +124,7 @@ public class InsertWordActivity extends AppCompatActivity {
             long wordId, id;
             int position, i, count;
 
-            TextView wordIdTextView = (TextView) findViewById(R.id.wordIdTextView);
-            wordId = Long.valueOf(wordIdTextView.getText().toString());
+            wordId = (long) wordNameEditText.getTag();
 
             LinearLayout breakListView = (LinearLayout) findViewById(R.id.breakDownEditList);
             breaks = new ArrayList<BreakRow>();
@@ -138,8 +132,7 @@ public class InsertWordActivity extends AppCompatActivity {
             count = breakListView.getChildCount();
             for (i = 0; i < count; ++i) {
                 view = breakListView.getChildAt(i);
-                idTextView = (TextView) view.findViewById(R.id.breakIdTextView);
-                id = Long.parseLong(idTextView.getText().toString());
+                id = (long) view.getTag();
                 nameEditText = (EditText) view.findViewById(R.id.breakNameEditText);
                 name = nameEditText.getText().toString().trim();
                 meaningEditText = (EditText) view.findViewById(R.id.breakMeaningEditText);
@@ -152,7 +145,7 @@ public class InsertWordActivity extends AppCompatActivity {
                     if (!name.isEmpty()) {
                         ++position;
                     }
-                    if (id>0 || !name.isEmpty()) {
+                    if (id > 0 || !name.isEmpty()) {
                         breaks.add(new BreakRow(id, position, name, meaning));
                     }
                 }
@@ -163,8 +156,7 @@ public class InsertWordActivity extends AppCompatActivity {
             count = meaningListView.getChildCount();
             for (i = 0; i < count; ++i) {
                 view = meaningListView.getChildAt(i);
-                idTextView = (TextView) view.findViewById(R.id.itemIdTextView);
-                id = Long.parseLong(idTextView.getText().toString());
+                id = (long) view.getTag();
                 valueEditText = (EditText) view.findViewById(R.id.itemValueEditText);
                 value = valueEditText.getText().toString().trim();
                 if (id > 0 || !value.isEmpty()) {
@@ -177,8 +169,7 @@ public class InsertWordActivity extends AppCompatActivity {
             count = usageListView.getChildCount();
             for (i = 0; i < count; ++i) {
                 view = usageListView.getChildAt(i);
-                idTextView = (TextView) view.findViewById(R.id.itemIdTextView);
-                id = Long.parseLong(idTextView.getText().toString());
+                id = (long) view.getTag();
                 valueEditText = (EditText) view.findViewById(R.id.itemValueEditText);
                 value = valueEditText.getText().toString().trim();
                 if (id > 0 || !value.isEmpty()) {

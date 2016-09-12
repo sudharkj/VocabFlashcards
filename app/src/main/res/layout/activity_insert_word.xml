@@ -20,13 +20,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/wordIdTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="New Text"
-                android:visibility="invisible" />
-
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Word Name" />
@@ -44,15 +37,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Breakdowns"
-                    android:layout_alignParentLeft="true"/>
+                    android:layout_alignParentLeft="true"
+                    android:text="Breakdowns" />
 
                 <Button
                     android:id="@+id/addBreakdownButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="+"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true"
+                    android:text="+" />
             </RelativeLayout>
 
             <LinearLayout
@@ -68,15 +61,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Meanings"
-                    android:layout_alignParentLeft="true"/>
+                    android:layout_alignParentLeft="true"
+                    android:text="Meanings" />
 
                 <Button
                     android:id="@+id/addMeaningButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="+"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true"
+                    android:text="+" />
             </RelativeLayout>
 
             <LinearLayout
@@ -92,15 +85,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Usages"
-                    android:layout_alignParentLeft="true"/>
+                    android:layout_alignParentLeft="true"
+                    android:text="Usages" />
 
                 <Button
                     android:id="@+id/addUsageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="+"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true"
+                    android:text="+" />
             </RelativeLayout>
 
             <LinearLayout

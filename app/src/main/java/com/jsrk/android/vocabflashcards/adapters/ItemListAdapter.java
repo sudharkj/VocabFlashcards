@@ -28,8 +28,7 @@ public class ItemListAdapter extends ListAdapter<ItemRow> {
     public View getView(ItemRow row) {
         View view = inflater.inflate(layoutResourceId, null);
         if (layoutResourceId == R.layout.item_insert_item) {
-            TextView idTextView = (TextView) view.findViewById(R.id.itemIdTextView);
-            idTextView.setText(String.format(Locale.US, "%d", row.getId()));
+            view.setTag(row.getId());
             EditText valueEditText = (EditText) view.findViewById(R.id.itemValueEditText);
             valueEditText.setText(row.getValue());
             valueEditText.setHint(HINT);
